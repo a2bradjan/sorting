@@ -50,7 +50,7 @@ def _merged(xs, ys, cmp=cmp_standard):
     k=len(ys)
     if l == 0:
         return ys
-    if len(k)== 0:
+    if k == 0:
         return xs
     
     e=0
@@ -58,22 +58,22 @@ def _merged(xs, ys, cmp=cmp_standard):
     s=0
 
     full = xs + ys
-    while e<l and x<k:
+    while e<len(xs) and x<len(ys):
         if cmp(xs[e],ys[x]) == -1:
                full[s] = xs[e]
                e += 1
         else:
                full[s] = ys[x]
-               x+=1
-        s+= 1
-    while e<l:
+               x += 1
+        s += 1
+    while e<len(xs):
         full[x] = xs[e]
-        e+= 1
-        s+= 1
-    while x<k:
+        e += 1
+        s += 1
+    while x<len(ys):
         full[s] = ys[x]
-        x+= 1
-        s+= 1
+        x += 1
+        s += 1
     return full
 
 def merge_sorted(xs, cmp=cmp_standard):
