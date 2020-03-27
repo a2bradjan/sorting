@@ -46,28 +46,26 @@ def _merged(xs, ys, cmp=cmp_standard):
     and returns a new list containing the elements of both xs and ys.
     Runs in linear time.
     '''
-    l = len(xs)
-    k = len(ys)
     lis = []
     x=0
     e=0
-    while x<l and e<k:
+    while x<len(xs) and e<len(ys):
         lis=cmp(xs[x],ys[e])
+        if lis==-1:
+            lis.append(xs[x])
+            x+=1
         if lis==0:
             lis.append(xs[x])
             lis.append(ys[e])
             x+=1
             e+=1
-        if lis==-1:
-            lis.append(xs[x])
-            x+=1
         if lis==1:
             lis.append(ys[e])
             e+=1
-    while e<k:
+    while e<len(ys):
         lis.append(ys[e])
         e+=1
-    while x<l:
+    while x<len(xs):
         lis.append(xs[x])
         x+=1
     return lis
