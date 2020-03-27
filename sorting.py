@@ -51,10 +51,6 @@ def _merged(xs, ys, cmp=cmp_standard):
     lis = []
     x=0
     e=0
-    if k == 0:
-        return xs
-    if l == 0:
-        return ys
     while x<l and e<k:
         lis=cmp(xs[x],ys[e])
         if lis==0:
@@ -67,6 +63,7 @@ def _merged(xs, ys, cmp=cmp_standard):
             x+=1
         if lis==1:
             lis.append(ys[e])
+            e+=1
     while e<k:
         lis.append(ys[e])
         e+=1
