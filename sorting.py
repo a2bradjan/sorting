@@ -125,10 +125,10 @@ def quick_sorted(xs, cmp=cmp_standard):
     if l<=1:
         return xs
     else:
-        random=random.randrange(l)
-        less = xs[:random]
-        great = xs[:random]
-        return _merged(merge_sorted(lower, cmp), merge_sorted(higher, cmp), cmp)
+        rando = random.randrange(len(xs))
+        less = xs[:rando]
+        great = xs[rando:]
+        return _merged(merge_sorted(less, cmp), merge_sorted(great, cmp), cmp)
 
 
 def quick_sort(xs, cmp=cmp_standard):
