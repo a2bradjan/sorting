@@ -54,13 +54,13 @@ def _merged(xs, ys, cmp=cmp_standard):
         if lis==-1:
             lis.append(xs[x])
             x+=1
+        if lis==1:
+            lis.append(ys[e])
+            e+=1
         if lis==0:
             lis.append(xs[x])
             lis.append(ys[e])
             x+=1
-            e+=1
-        if lis==1:
-            lis.append(ys[e])
             e+=1
     while e<len(ys):
         lis.append(ys[e])
